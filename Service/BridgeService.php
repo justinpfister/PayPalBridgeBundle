@@ -27,9 +27,9 @@ class BridgeService {
         );
 
         //create temp file and save symfony config to it
-        if ($kernel->getEnvironment() == "prod") {
+        if ( $config['mode'] == "production") {
             $iniConfigs['service.EndPoint'] = "https://api.paypal.com";
-        } else {
+        } elseif( $config['mode'] == "test") {
             $iniConfigs['service.EndPoint'] = "https://api.sandbox.paypal.com";
         }
 
